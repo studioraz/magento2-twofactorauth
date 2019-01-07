@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 
+<!--
+  ~ Copyright © 2019 Studio Raz. All rights reserved.
+  ~ See LICENSE file for license details.
+  -->
+
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <!--<preference for="Magento\Customer\Controller\Account\LoginPost" type="SR\TwoFactorAuth\Controller\Account\LoginPost"/>-->
     <type name="Magento\Customer\Controller\Account\LoginPost">
