@@ -1,0 +1,71 @@
+<?php $helperConfig = $this->helper('SR\TwoFactorAuth\Helper\Config'); ?>
+<form
+    class="form form-verification"
+    action="<?php echo $block->getUrl('twoFactorAuth/account/loginVerification'); ?>"
+    method="post"
+    id="form-verification-code"
+    date-loginaction="<?php /* @escapeNotVerified */ echo $block->getUrl('twoFactorAuth/account/loginPost') ?>"
+    style="display:none;">
+    <fieldset class="fieldset verification" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>">
+        <div class="field email required">
+            <label class="label" for="email"><span><?php /* @escapeNotVerified */ echo __('Enter Verification Code') ?></span></label>
+            <div class="control _with-tooltip">
+                <input name="code" id="code" type="text" class="input-text" title="<?php /* @escapeNotVerified */ echo __('Verification Code') ?>" data-validate="{required:true}">
+                <?php if ($tooltipText = $helperConfig->getVerificationTooltipText()): ?>
+                    <div class="field-tooltip toggle">
+                        <span class="field-tooltip-action action-help" tabindex="0" data-toggle="dropdown" data-bind="mageInit: {'dropdown':{'activeClass': '_active'}}" aria-haspopup="true" aria-expanded="false"></span>
+                        <div class="field-tooltip-content" data-target="dropdown" aria-hidden="true">
+                            <?php echo $tooltipText; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+        <div class="actions-toolbar">
+            <div class="primary"><button type="submit" class="action login primary" name="send" id="send2"><span><?php /* @escapeNotVerified */ echo __('Sign In') ?></span></button></div>
+        </div>
+    </fieldset>
+</form>
+
+<script>
+    require(['jquery'], function($) {
+        $(function () {
+            var logAction = $('#form-verification-code').attr('date-loginaction');
+            $('#login-form').attr('action',logAction);
+            $("#form-verification-code").insertAfter($(".block-customer-login .block-content #login-form"));
+
+            $('#login-form').on('submit', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'post',
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    showLoader: true,
+                    success: function (response) {
+                        if (response['status'] == 'success') {
+                            $('.form-login').hide();
+                            $('.form-verification').show();
+                        }
+                        if (response['redirect_url']) {
+                            window.location = response['redirect_url'];
+                        }
+                    }
+                });
+            });
+            $('.form-verification').on('submit', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'post',
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    showLoader: true,
+                    success: function (response) {
+                        if (response['redirect_url']) {
+                            window.location = response['redirect_url'];
+                        }
+                    }
+                });
+            });
+        });
+    });
+</script>

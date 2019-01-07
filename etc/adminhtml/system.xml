@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="two_factor_auth" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Two Factor Authentication</label>
+            <tab>studioraz</tab>
+            <resource>SR_TwoFactorAuth::two_factor_auth</resource>
+            <group id="general" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Functionality Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="time_range" translate="label" type="text" showInDefault="1" showInWebsite="1"
+                       showInStore="1" sortOrder="20">
+                    <label>Time Range for verification code expiration (seconds)</label>
+                </field>
+                <field id="attempts_number" translate="label" type="text" showInDefault="1" showInWebsite="1"
+                       showInStore="1" sortOrder="30">
+                    <label>Number of Attempts to enter a valid code</label>
+                </field>
+                <field id="error_massage" translate="label" type="text" showInDefault="1" showInWebsite="1"
+                       showInStore="1" sortOrder="40">
+                    <label>Error Message</label>
+                </field>
+                <field id="auth_type" translate="label comment" type="select" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Authentication Type</label>
+                    <source_model>SR\TwoFactorAuth\Model\Source\AuthenticationType</source_model>
+                </field>
+                <field id="email_sender" translate="label" type="text" showInDefault="1" showInWebsite="1"
+                        showInStore="1" sortOrder="60">
+                    <label>Email Sender</label>
+                    <depends>
+                        <field id="auth_type">1</field>
+                    </depends>
+                </field>
+                <field id="sms_provider" translate="label" type="select" showInDefault="1" showInWebsite="1"
+                        showInStore="1" sortOrder="70">
+                    <label>SMS provider</label>
+                    <source_model>SR\TwoFactorAuth\Model\Source\SmsType</source_model>
+                    <depends>
+                        <field id="auth_type">2</field>
+                    </depends>
+                </field>
+                <field id="api_gateway_url" translate="label" type="text" showInDefault="1" showInWebsite="1"
+                       showInStore="1" sortOrder="80">
+                    <label>API Gateway URL</label>
+                    <depends>
+                        <field id="auth_type">2</field>
+                    </depends>
+                </field>
+                <field id="api_username" translate="label" type="text" showInDefault="1" showInWebsite="1"
+                       showInStore="1" sortOrder="90">
+                    <label>API Username</label>
+                    <depends>
+                        <field id="auth_type">2</field>
+                    </depends>
+                </field>
+                <field id="api_password" translate="label" type="text" showInDefault="1" showInWebsite="1"
+                       showInStore="1" sortOrder="100">
+                    <label>API Password</label>
+                    <depends>
+                        <field id="auth_type">2</field>
+                    </depends>
+                </field>
+                <field id="from_cellphone" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="110">
+                    <label>From Cellphone</label>
+                    <comment>Messages arriving on the mobile station will appear as coming from this number.</comment>
+                    <depends>
+                        <field id="auth_type">2</field>
+                    </depends>
+                </field>
+
+                <field id="error_email" translate="label" type="text" showInDefault="1" showInWebsite="1"
+                       showInStore="1" sortOrder="120">
+                    <label>Email Address for Error Notifications</label>
+                </field>
+
+                <field id="verification_tooltip_text" translate="label" type="textarea" showInDefault="1"
+                       showInWebsite="1" showInStore="1" sortOrder="130">
+                    <label>Verification Tooltip Text</label>
+                </field>
+
+                <field id="sign_in_form_note" translate="label" type="textarea" showInDefault="1"
+                       showInWebsite="1" showInStore="1" sortOrder="140" canRestore="1">
+                    <label>Sign In Form Note</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

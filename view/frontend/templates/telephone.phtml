@@ -1,0 +1,13 @@
+<?php
+/** @var $block SR\TwoFactorAuth\Block\AdditionalFields */
+?>
+
+<div class="field telephone<?php if ($block->isTelephoneRequired()): ?> required<?php endif; ?>">
+    <label for="telephone" class="label"><span><?php /* @escapeNotVerified */
+            echo __('Mobile Phone') ?></span></label>
+    <div class="control">
+        <input type="text" name="telephone" id="telephone" title="<?php /* @escapeNotVerified */
+        echo __('Mobile Phone') ?>" value="<?php echo $block->getCustomer()->getTelephone(); ?>"
+               class="input-text"<?php if ($block->isTelephoneRequired()): ?> data-validate="{required:true, 'validate-israeli-phone-number':true}"<?php endif; ?>>
+    </div>
+</div>

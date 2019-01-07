@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <two_factor_auth>
+            <general>
+                <enabled>0</enabled>
+                <auth_type>1</auth_type>
+                <time_range>60</time_range>
+                <attempts_number>3</attempts_number>
+                <error_massage>You entered wrong authentication code. Please try again</error_massage>
+                <error_email>example@example.com</error_email>
+                <verification_tooltip_text>If you are having trouble receiving the verification code, you may have entered a wrong contact information. Please contact us.</verification_tooltip_text>
+                <sign_in_form_note>If you have an account, sign in with your email address.</sign_in_form_note>
+            </general>
+        </two_factor_auth>
+    </default>
+    <websites>
+        <diplomat>
+            <two_factor_auth>
+                <general>
+                    <sign_in_form_note>
+                        <![CDATA[
+If you have an account, sign in with your email address.
+<br/>
+The verification code will be sent to the phone number you entered on your subscription.
+                        ]]>
+                    </sign_in_form_note>
+                </general>
+            </two_factor_auth>
+        </diplomat>
+    </websites>
+</config>

@@ -1,0 +1,5 @@
+<!--@subject {{trans "Failed Authentication Attempt: external service failure"}} @-->
+{{template config_path="design/email/header_template"}}
+{{trans "There was an error in an external service call. Below is external service response."}}
+{{var failure_response|raw}}
+{{template config_path="design/email/footer_template"}}

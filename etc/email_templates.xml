@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="auth_failed" label="Failed Authentication Attempt" file="failed_auth.html" type="html"
+              module="SR_TwoFactorAuth" area="adminhtml"/>
+    <template id="verification_code" label="Verification Code" file="verification_code.html" type="html"
+              module="SR_TwoFactorAuth" area="adminhtml"/>
+</config>
