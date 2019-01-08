@@ -48,14 +48,8 @@ class LoginPost extends \Magento\Customer\Controller\AbstractAccount
     private $scopeConfig;
 
     /**
-     * @var \SR\UnicellSms\Model\Service
+     * @var \SR\TwoFactorAuth\Model\ServiceFactory
      */
-    private $smsService;
-
-    /**
-     * @var \SR\TwoFactorAuth\Model\EmailService
-     */
-    private $emailService;
     private $service;
 
     /**
@@ -77,8 +71,7 @@ class LoginPost extends \Magento\Customer\Controller\AbstractAccount
      * @param \Magento\Framework\View\LayoutFactory $layoutFactory
      * @param \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory
      * @param ScopeConfigInterface $scopeConfig
-     * @param \SR\UnicellSms\Model\Service $smsService
-     * @param \SR\TwoFactorAuth\Model\EmailService $emailService
+     * @param \SR\TwoFactorAuth\Model\ServiceFactory $service
      * @param \SR\TwoFactorAuth\Helper\Config $configHelper
      */
     public function __construct(
