@@ -13,7 +13,7 @@
     <type name="Magento\Framework\Console\CommandList">
         <arguments>
             <argument name="commands" xsi:type="array">
-                <item name="SrUnicellSmsSend" xsi:type="object">SR\TwoFactorAuth\Console\Command\Send</item>
+                <item name="SrTwoFacrotAuthSmsSend" xsi:type="object">SR\TwoFactorAuth\Console\Command\Send</item>
             </argument>
         </arguments>
     </type>

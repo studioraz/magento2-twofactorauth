@@ -52,7 +52,7 @@ class Send extends Command
     protected function configure()
     {
 
-        $this->setName("sr:unicellsms:send")
+        $this->setName("sr:twofacrotauth:unicellsms:send")
             ->setDescription("A command the programmer was too lazy to enter a description for.")
             ->setDefinition($this->getInputList());
 
@@ -92,8 +92,6 @@ class Send extends Command
             $this->smsService->getResponseCode(),
             $this->smsService->getResponseMessage()
         ));
-
     }
-
 
 }
