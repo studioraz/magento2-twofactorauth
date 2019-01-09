@@ -9,7 +9,7 @@
     <system>
         <tab id="studioraz" translate="lavel" sortOrder="1">
             <label>Studio Raz</label>
-        </tab>g
+        </tab>
         <section id="two_factor_auth" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Two Factor Authentication</label>
             <tab>studioraz</tab>
