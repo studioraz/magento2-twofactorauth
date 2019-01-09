@@ -12,6 +12,6 @@
   ],
   "autoload": {
     "files": [ "registration.php" ],
-    "psr-4": { "SR\\Creditguard\\": ""}
+    "psr-4": { "SR\\TwoFactorAuth\\": ""}
   }
 }
